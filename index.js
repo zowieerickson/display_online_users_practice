@@ -8,32 +8,18 @@ findUsers().then(data => {
     const testUser = data[0];
     const userDiv = getUserDiv(data);
 
-    document.querySelector('main').innerHTML = userDiv;
+    document.querySelector('.user-container').innerHTML = userDiv;
 })
 
 function getUserDiv(users) {
     let html = '';
 
-    console.log(users);
     users.map(user => {
-    html +=
-    `
-    <div class="user-container">
-        <div class="user">
-            <p class="user-name">${user.username}</p>
-            <div class="user-online"></div>
-        </div>
-    </div>
-    `;
-})
+        html += `
+            <div class="user">
+                <p class="user-name">${user.username}</p>
+                <div class="user-online"></div>
+            </div>`;
+    })
     return html;
-
-    // return `
-    // <div class="user-container">
-    //     <div class="user">
-    //         <p class="user-name">${users.username}</p>
-    //         <div class="user-online"></div>
-    //     </div>
-    // </div>
-    // `
 }

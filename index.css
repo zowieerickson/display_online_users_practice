@@ -1,7 +1,12 @@
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     background-color: #7fc8f8;
+
 }
 
 * {
@@ -12,20 +17,26 @@ main {
     padding: 3rem;
 }
 
+h2 {
+    margin: 0;
+}
+
 .user {
     background: lightgreen;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     border: 2px solid black;
     border-radius: 7px;
-    width: fit-content;
-    padding: .3rem 2rem
+    padding: .3rem 2rem;
+    overflow-wrap: break-word;
+
 }
 
 .user-name {
     margin-left: .35rem;
+    text-overflow: ellipsis;
 }
 
 .user-online {
@@ -33,4 +44,38 @@ main {
     width: .6rem;
     height: .6rem;
     border-radius: 50%;
+}
+
+.user-info {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.user-container {
+    overflow: auto;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+main {
+    background: darkblue;
+    color: #fff
+}
+
+#main-container > * {
+    width: 50%;
+}
+
+header, footer {
+    background: palevioletred;
 }
