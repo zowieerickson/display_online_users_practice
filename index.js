@@ -6,15 +6,34 @@ async function findUsers() {
 
 findUsers().then(data => {
     const testUser = data[0];
-    console.log(testUser);
-    const html = `
+    const userDiv = getUserDiv(data);
+
+    document.querySelector('main').innerHTML = userDiv;
+})
+
+function getUserDiv(users) {
+    let html = '';
+
+    console.log(users);
+    users.map(user => {
+    html +=
+    `
     <div class="user-container">
         <div class="user">
-            <p class="user-name">${testUser.username}</p>
+            <p class="user-name">${user.username}</p>
             <div class="user-online"></div>
         </div>
     </div>
     `;
-
-    document.querySelector('main').innerHTML = html;
 })
+    return html;
+
+    // return `
+    // <div class="user-container">
+    //     <div class="user">
+    //         <p class="user-name">${users.username}</p>
+    //         <div class="user-online"></div>
+    //     </div>
+    // </div>
+    // `
+}
